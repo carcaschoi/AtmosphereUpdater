@@ -53,7 +53,7 @@ class Ui_Dialog(QDialog):
 	def getDirectory(self):
 		global upd_path
 		upd_path = QFileDialog.getExistingDirectory(None,"选择文件夹","C:/")
-		if os.path.exists(upd_path+'\\atmosphere\\') == True and os.path.exists(upd_path+'\\bootloader\\') == True:
+		if os.path.exists(upd_path+'\\atmosphere\\') == True and os.path.exists(upd_path+'\\sept\\') == True:
 			self.textBrowser.append('升级包所在路径为 ' + upd_path)
 			self.textBrowser.append('升级过程因TF卡读写速度和文件数量需要等待几分钟到十几分钟，期间请勿关闭本程序')
 			self.Button.setText('开始升级')
@@ -64,7 +64,7 @@ class Ui_Dialog(QDialog):
 	def installNew(self):
 
 		
-		path_bak =os.path.abspath(self.comboBox.currentText() + '\\AU_Bak\\')
+		path_bak =os.path.abspath(self.comboBox.currentText() + '\\SU_Bak\\')
 		if not os.path.exists(path_bak):
 			os.makedirs(path_bak)
 		else:
@@ -83,7 +83,7 @@ class Ui_Dialog(QDialog):
 		if os.path.exists(path):		
 			shutil.copytree(path, path_bak+'\\Checkpoint\\saves')
 		path = self.comboBox.currentText()+'\\'
-		dirsList=['Nintendo','emuMMC','AU_Bak','game save dont delete','JKSV','emuiibo','BCAT','warmboot_mariko']
+		dirsList=['Nintendo','emuMMC','SU_Bak','game save dont delete','JKSV','emuiibo','BCAT','warmboot_mariko']
 		fileList=['license.dat']
 		self.DeleteFiles(path,dirsList,fileList)
 
