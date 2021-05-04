@@ -55,7 +55,7 @@ class Ui_Dialog(QDialog):
 		upd_path = QFileDialog.getExistingDirectory(None,"Choose folder","C:/")
 		if os.path.exists(upd_path+'\\atmosphere\\') == True and os.path.exists(upd_path+'\\sept\\') == True:
 			self.textBrowser.append('SahllowSea-ams path ' + upd_path)
-			self.textBrowser.append('Updating...Don't close this app')
+			self.textBrowser.append('Updating...Donnot close this app')
 			self.Button.setText('Start Update')
 			global PathBool
 			PathBool = True
