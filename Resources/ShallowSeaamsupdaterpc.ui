@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>ShallowSea-ams Updater for pc</string>
+   <string>ShallowSea-ams Updater</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
