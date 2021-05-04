@@ -10,12 +10,12 @@ import time
 class Ui_Dialog(QDialog):
 	def __init__(self, *args):
 		super(Ui_Dialog, self).__init__(*args)
-		loadUi(r'Resources\AtmosphereUpdater.ui', self)
+		loadUi(r'Resources\ShallowSeaamsupdaterpc.ui', self)
 		self.setWindowFlags(Qt.WindowCloseButtonHint)
 		self.setWindowIcon(QIcon('Resources\Atmosphere.ico'))
 		self.Button.clicked.connect(self.Update)
 		self.comboBox.currentTextChanged.connect(self.comboBoxRefresh)
-		self.textBrowser.append('Welcome to ShallowSea updater')
+		self.textBrowser.append('Welcome to ShallowSea-ams updater')
 		global PathBool 
 		PathBool = False
 		self.Button.setEnabled(False)
@@ -52,15 +52,15 @@ class Ui_Dialog(QDialog):
 
 	def getDirectory(self):
 		global upd_path
-		upd_path = QFileDialog.getExistingDirectory(None,"选择文件夹","C:/")
+		upd_path = QFileDialog.getExistingDirectory(None,"Choose folder","C:/")
 		if os.path.exists(upd_path+'\\atmosphere\\') == True and os.path.exists(upd_path+'\\sept\\') == True:
-			self.textBrowser.append('升级包所在路径为 ' + upd_path)
-			self.textBrowser.append('升级过程因TF卡读写速度和文件数量需要等待几分钟到十几分钟，期间请勿关闭本程序')
-			self.Button.setText('开始升级')
+			self.textBrowser.append('SahllowSea-ams path ' + upd_path)
+			self.textBrowser.append('Updating...Don't close this app')
+			self.Button.setText('Start Update')
 			global PathBool
 			PathBool = True
 		else:
-			self.textBrowser.append('升级包目录不匹配，请重新选择目录')
+			self.textBrowser.append('Please reselect the path of ShallowSea-ams')
 	def installNew(self):
 
 		
@@ -99,8 +99,8 @@ class Ui_Dialog(QDialog):
 			self.move_file(source,target)
 
 		shutil.rmtree(path_bak,True)
-		self.textBrowser.append('完成')
-		reply = QMessageBox.information(self,'完成',"升级成功",QMessageBox.Yes,QMessageBox.Yes)
+		self.textBrowser.append('Finished')
+		reply = QMessageBox.information(self,'Finished',"Successfully update",QMessageBox.Yes,QMessageBox.Yes)
 		if reply == QMessageBox.Yes:
 			os._exit(0)
 
@@ -116,10 +116,10 @@ class Ui_Dialog(QDialog):
 	@pyqtSlot()
 	def comboBoxRefresh(self):
 		if os.path.exists(self.comboBox.currentText()+'\\atmosphere\\') == True and os.path.exists(self.comboBox.currentText()+'\\emummc\\') == True:
-			self.textBrowser.append('TF卡盘符更改为 '+self.comboBox.currentText())
+			self.textBrowser.append('sd card select '+self.comboBox.currentText())
 			self.Button.setEnabled(True)
 		else:
-			self.textBrowser.append('读取错误，请重新选择TF卡所在盘符')
+			self.textBrowser.append('cannot mount sd card. Please mount another one')
 			self.Button.setEnabled(False)
 		
 
