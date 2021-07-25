@@ -1,7 +1,14 @@
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5.uic import loadUi
+try:
+    from PyQt5.QtWidgets import *
+    from PyQt5.QtGui import *
+    from PyQt5.QtCore import *
+    from PyQt5.uic import loadUi
+except ModuleNotFoundError:
+    os.system("pip install PyQt5")
+    from PyQt5.QtCore import *
+    from PyQt5.QtWidgets import *
+    from PyQt5.QtGui import *
+    from PyQt5.uic import loadUi
 import sys
 import os
 import shutil
@@ -12,7 +19,6 @@ class Ui_Dialog(QDialog):
 		super(Ui_Dialog, self).__init__(*args)
 		loadUi(r'Resources\ShallowSeaamsupdaterpc.ui', self)
 		self.setWindowFlags(Qt.WindowCloseButtonHint)
-		self.setWindowIcon(QIcon('Resources\Atmosphere.ico'))
 		self.Button.clicked.connect(self.Update)
 		self.comboBox.currentTextChanged.connect(self.comboBoxRefresh)
 		self.textBrowser.append('Welcome to ShallowSea-ams updater')
