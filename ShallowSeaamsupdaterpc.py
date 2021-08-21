@@ -89,7 +89,7 @@ class Ui_Dialog(QDialog):
 		if os.path.exists(path):		
 			shutil.copytree(path, path_bak+'\\Checkpoint\\saves')
 		path = self.comboBox.currentText()+'\\'
-		dirsList=['Nintendo','emuMMC','SU_Bak','game save dont delete','JKSV','emuiibo','warmboot_mariko','backup','lakka','Neumann','Roms','themes','retroarch','config','atmosphere file','sxos file']
+		dirsList=['Nintendo','emuMMC','SU_Bak','game save dont delete','JKSV','emuiibo','warmboot_mariko','backup','lakka','Neumann','Roms','Rom','switch','themes','retroarch','config','atmosphere file','sxos file']
 		fileList=['license.dat']
 		self.DeleteFiles(path,dirsList,fileList)
 
